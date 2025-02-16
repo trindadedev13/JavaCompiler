@@ -27,8 +27,9 @@ Token Lexer::nextToken() {
   for (int i = 0; i < token_patterns.size(); i++) {
     std::regex pattern("^" + token_patterns[i]);
     std::smatch matches;
-    if (std::regex_search(input, matches, pattern)) {
-      std::string value = matches[0];
+    std::string remain_input = input.substr(current_position);
+    if (std::regex_search(remain_input, matches, pattern)) {
+      std::string value = matches.str(0);
       current_position += value.length();
       return Token(token_types[i], value);
     }
