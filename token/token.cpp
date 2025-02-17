@@ -1,3 +1,8 @@
+/**
+ * Licensed under Apache 2.0.
+ * Developed by Aquiles Trindade (trindadedev).
+ */
+
 #include "token.hpp"
 
 Token::Token(TokenType type, const std::string value) : type(type), value(value) {}

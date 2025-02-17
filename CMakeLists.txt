@@ -1,3 +1,6 @@
+# Licensed under Apache 2.0.
+# Developed by Aquiles Trindade (trindadedev).
+
 cmake_minimum_required(VERSION 3.10)
 
 set(PROGRAM_NAME JavaCompiler)

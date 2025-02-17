@@ -1,3 +1,8 @@
+/**
+ * Licensed under Apache 2.0.
+ * Developed by Aquiles Trindade (trindadedev).
+ */
+
 #include <string>
 #include "lexer/lexer.hpp"
 
