@@ -18,7 +18,7 @@ std::string Token::type_as_str() {
       return "WHITESPACE";
     case TokenType::COMMENT:
       return "COMMENT";
-    case TokenType::UNKNOWN:
+    default:
       return "UNKNOWN";
   }
 }
