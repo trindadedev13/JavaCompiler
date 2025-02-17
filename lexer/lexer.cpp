@@ -3,20 +3,22 @@
  * Developed by Aquiles Trindade (trindadedev).
  */
 
-#include <memory>
-#include <cctype>
 #include <list>
 #include <regex>
 #include "lexer.hpp"
 
 Lexer::Lexer(const std::string input): input(input), current_position(0) { }
 
+std::string Lexer::get_keywords_pattern() {
+  return "abstract|assert|boolean|break|byte|case|catch|char|class|const|continue|default|do|double|else|enum|extends|final|finally|float|for|goto|if|implements|import|instanceof|int|interface|long|native|new|null|package|private|protected|public|return|short|static|strictfp|super|switch|synchronized|this|throw|throws|transient|try|void|volatile|while";
+}
+
 Token Lexer::nextToken() {
   if (current_position >= input.length()) {
     throw std::runtime_error("something wrong with current_position. ");
   }
   std::vector<std::string> token_patterns = {
-    "if|else|while|for",
+    get_keywords_pattern(),
     "[a-zA-Z_][a-zA-Z0-9_]*",
     "\\d+",
     "[+-/*=<>!]",

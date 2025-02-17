@@ -14,6 +14,7 @@ class Lexer {
   private:
     std::string input;
     int current_position;
+    std::string get_keywords_pattern();
   public:
     std::list<Token> tokenize();
     Token nextToken();
