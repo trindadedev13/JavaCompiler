@@ -8,16 +8,16 @@ Lexer::Lexer(const std::string input): input(input), current_position(0) { }
 
 Token Lexer::nextToken() {
   if (current_position >= input.length()) {
-    throw std::invalid_argument("token is null");
+    throw std::runtime_error("something wrong with current_position. ");
   }
-  std::array<std::string, 5> token_patterns = {
+  std::vector<std::string> token_patterns = {
     "if|else|while|for",
     "[a-zA-Z_][a-zA-Z0-9_]*",
     "\\d+",
     "[+-/*=<>!]",
     "[.,;(){}]"
   };
-  TokenType token_types[5] = {
+  std::vector<TokenType> token_types = {
     TokenType::KEYWORD,
     TokenType::IDENTIFIER,
     TokenType::LITERAL,
@@ -34,7 +34,7 @@ Token Lexer::nextToken() {
       return Token(token_types[i], value);
     }
   }
-  throw std::invalid_argument("token is null");
+  throw std::runtime_error("token not recognized. ");
 }
 
 std::list<Token> Lexer::tokenize() {
