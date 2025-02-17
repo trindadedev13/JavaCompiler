@@ -10,6 +10,8 @@ cmake ../
 make
 
 # run program in $HOME directory
-cp $PROGRAM_NAME $HOME
-echo "$PROGRAM_NAME Copied to $HOME"
-$HOME/$PROGRAM_NAME
+if [ "$1" = "run" ]; then
+  cp $PROGRAM_NAME $HOME
+  echo "$PROGRAM_NAME Copied to $HOME"
+  $HOME/$PROGRAM_NAME
+fi;

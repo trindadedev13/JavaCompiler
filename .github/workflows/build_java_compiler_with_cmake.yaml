@@ -1,0 +1,23 @@
+name: Build JavaCompiler with CMake
+
+on:
+  pull_request:
+    branches: [ "**" ]
+    paths-ignore:
+      - '**/*.md'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build JavaCompiler with CMake
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Grant permission to make.sh
+        run: chmod +x make.sh
+
+      - name: Build using make.sh
+        run: ./make.sh
