@@ -1,11 +1,15 @@
+# variables
+PROGRAM_NAME="JavaCompiler"
+
 # cleanup build files
 rm -rf build
 mkdir build && cd build
 
-# start build 
+# start build
 cmake ../
 make
 
-# copy to private dir to be possible run in termux android
-cp JavaCompiler ~
-echo "Copied to private dir"
+# run program in $HOME directory
+cp $PROGRAM_NAME $HOME
+echo "$PROGRAM_NAME Copied to $HOME"
+$HOME/$PROGRAM_NAME

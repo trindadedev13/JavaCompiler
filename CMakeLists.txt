@@ -1,10 +1,12 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(JavaCompiler)
+set(PROGRAM_NAME JavaCompiler)
 
 set (SOURCE_FILES
   main.cpp
   lexer/lexer.cpp
   token/token.cpp)
 
-add_executable(JavaCompiler ${SOURCE_FILES})
+project(${PROGRAM_NAME})
+
+add_executable(${PROGRAM_NAME} ${SOURCE_FILES})
